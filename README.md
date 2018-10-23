@@ -6,11 +6,11 @@
 
 ## Usage
 
-### MacOS
+### OSX virtual environment
 
 ```bash
 source venv/bin/activate
-python main -m [mode]
+python main.py -m [mode]
 ```
 
 method|mode
@@ -18,6 +18,20 @@ method|mode
 Brute force|bf
 Apriori|ap
 FP-growth|fp
+
+### Your own python3 interpreter
+
+You need to install the following packages:
+
+- pandas
+- numpy
+- mlxtend
+
+Then type the command same as above.
+
+```bash
+python main.py -m [mode]
+```
 
 ## Files
 
