@@ -6,6 +6,9 @@ from itertools import combinations
 import pandas as pd
 from mlxtend.frequent_patterns import association_rules
 import sys, getopt
+import time
+import os
+import psutil
 
 
 def main(argv):
@@ -19,12 +22,16 @@ def main(argv):
         if opt == '-m':
             mode = arg
     
+    start_time = time.time()
     if mode == 'bf':
         run_brute_force()
     elif mode == 'ap':
         run_apriori()
     elif mode == 'fp':
         run_fp_growth()
+    print("Execution Time:", time.time() - start_time, "seconds.")
+    process = psutil.Process(os.getpid())
+    print("Memory Usage:", process.memory_info().rss, "bytes.")
 
 def run_brute_force():
     instance1 = bf.brute_force(min_sup=70, num_of_items=10, num_of_transactions=97)
